@@ -5,7 +5,7 @@
 language: zh
 
 # avatar image url
-head_img: images/avatar.png
+head_img: images/avatar.jpg
 
 # home page head info block
 head_block_enable: true
@@ -55,7 +55,7 @@ menu:
 # side info card
 card:
   enable: true
-  description: ["正しさなんてもの", "人のモノサシによって変わる"]
+  description: ["Nothing to say"]
   icon_links:
     github:
       icon:
@@ -63,17 +63,16 @@ card:
         name: github
         theme: filled
         src:
-      link: https://github.com/korilin
-    twitter:
-      icon:
-        type: antd-icon
-        name: twitter
-        theme:
-        src:
-      link: https://twitter.com/korilin_dev
+      link: https://github.com/KevinvFeng
+    # twitter:
+    #   icon:
+    #     type: antd-icon
+    #     name: twitter
+    #     theme:
+    #     src:
+    #   link: https://twitter.com/korilin_dev
   friend_links:
-    英文技术博客: https://en.korilin.com
-    日语记录博客: https://jp.korilin.com
+    Github: https://github.com/KevinvFeng
 
 # footer info
 footer:
