@@ -13,6 +13,15 @@
             </div>
             <% }) %>
         </div>
+        <% if (theme.busuanzi == true) { %>
+        <div class="descriptions">
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+        </div>
+        <% } %>
+        <div class="descriptions">
+            
+        </div>
         <div class="icon-links">
             <% Object.keys(theme.card.icon_links).forEach(function(key){ %>
             <span class="icon-link">

@@ -44,6 +44,17 @@
     <% } %>
     <script src="<%- rootlink %>js/vue.js"></script>
     <script src="<%- rootlink %>js/antd.min.js"></script>
+    <% if(theme.google.enable == true){ %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%- theme.google.id %>"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<%- theme.google.id %>');
+    </script>
+    <% } %>
 </head>
 
 <body>

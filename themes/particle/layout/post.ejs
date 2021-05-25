@@ -11,7 +11,15 @@
             </span>
             <%- date(page.date, 'YYYY/M/D') %>
         </span>
-
+        <% if (theme.busuanzi == true) { %>
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            <% } %>
         <% if(page.categories && page.categories.data.length!=0){ %>
         <span class="category">
             <a href="<%- rootlink %>categories/<%= page.categories.data[0].name.replace(" ", "-") %>">
