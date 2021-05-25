@@ -72,7 +72,7 @@ local_search:
 # Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax
 # ---------------
 mathjax:
-  enable: false
+  enable: true
   cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # KaTeX
@@ -92,7 +92,7 @@ fireworks: false
 # ---------------
 baidu_analytics:
 
-google_analytics:
+google_analytics: G-JWLLPQ749C
 
 # Tencent_analytics ID
 tencent_analytics:
@@ -255,7 +255,7 @@ disqus:
 
 # Footer Settings
 # ---------------
-since: 2013
+since: 2021
 
 # footer_custom_text: put custom text directly or put hitokoto to fetch random texts
 
@@ -315,7 +315,7 @@ google_adsense:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification:
+google_site_verification: lk_DR3ozAzg5zlMm3QC2VeRWnyTWUJS9609TYBpnDlk
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
@@ -327,7 +327,7 @@ bing_site_verification:
 
 # Baidu Webmaster tools verification setting
 # See: https://ziyuan.baidu.com/site/
-baidu_site_verification:
+baidu_site_verification: code-RmBJ23yhDz
 
 # 360 Webmaster tools verification setting
 # see http://zhanzhang.so.com/

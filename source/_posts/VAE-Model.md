@@ -3,8 +3,10 @@ title: VAE模型及其变种
 date: 2021-05-21 11:22:19
 author: Kevin Feng
 tags:
-- Machine Learing
+- Machine Learning
 ---
+VAE模型是一个生成模型，用于生成相似的图片，他比GAN早一年出现。与GAN相比虽然生成的图片模糊程度比较高，但是训练稳定，依然有着很大的用途
+<!--more-->
 # 背景知识
 ## AutoEncoder
 AutoEncoder是一个很基本的网络结构，输入是X输出希望也是X，不过中间会有一层latent hidden layer的维度要远小于输入和输出维度。一般这个中间层的维度也就几十左右。
