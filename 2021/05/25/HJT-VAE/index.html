@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Feng的图书馆 || HJT-VAE模型</title>
+    <meta name="author" content="Kevin Feng">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLLPQ749C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JWLLPQ749C');
+    </script>
+    <script data-ad-client="ca-pub-2050152873704053" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Kevin Feng的图书馆</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Kevin Feng的图书馆</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>HJT-VAE模型 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/5/25
+        </span>
+        
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Machine-Learning" style=color:#1bccbc>
+                    Machine Learning
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>以往的分子图模型都是围绕着粒度较小的单元进行拆分，比如一个原子或者一个小环。而HJT-VAE模型，提供了多粒度的分子表示，从原子层面到connected motifs(连接模态?)</p>
+<a id="more"></a>
+<h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p>读此文之前建议先了解<a href="https://kevinvfeng.github.io/2021/06/02/JT-VAE/">JT-VAE</a>,是同一作者之前的研究,了解了JT-VAE之后可以很清楚的看到作者在这篇文章具体优化了什么,否则直接理解此文会稍微有些困难,但是不是不能理解.</p>
+<h2 id="其他模型的问题"><a href="#其他模型的问题" class="headerlink" title="其他模型的问题"></a>其他模型的问题</h2><h3 id="Smiles"><a href="#Smiles" class="headerlink" title="Smiles"></a>Smiles</h3><p>以往大多数基于 SMILES 的模型会有一个先天的问题,同一个分子有多个 SMILES 表示,导致每个字符之间的位置关系并不完美.同理,两个相似的分子的 SMILES 的距离(edit distance)可能相差很大.这会导致 VAE 类模型并不能很好的学习到每个字符的平滑 embedding. </p>
+<h3 id="原子粒度"><a href="#原子粒度" class="headerlink" title="原子粒度"></a>原子粒度</h3><p>其他模型如果采用原子层面的图模型表示的话,也会有一个问题:生成一个苯环结构会先依次生成 6 个原子而不是直接放一个苯环,这几步中间过程生成出的分子很可能是无效的.</p>
+<h3 id="分子量大的情况"><a href="#分子量大的情况" class="headerlink" title="分子量大的情况"></a>分子量大的情况</h3><p>相对于JT-VAE而言,JT-VAE的vocab只有几百条,且基本都是单环,不会有多个并环的存在. 所以JT-VAE在处理多聚体的时候会略显困难.同时很多VAE based模型在重构方面误差会累积,分子量越大,重构起来越困难.尤其对于JT-VAE而言,由于在decoder部分需要遍历所有的有效可能结果,在大分子的时候计算量是指数型增加的,计算能力也是个问题.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>作者主要是针对JT-VAE的问题进行了优化,提升了训练速度以及重构的准确率.</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="Motif"><a href="#Motif" class="headerlink" title="Motif"></a>Motif</h4><p>对于小分子或聚合物而言,它有着非常清晰的层次结构.如下图左侧所示,这图可以分成了几部分,中间这一块称之为 Structural motifs.<br><img src="/HJT-VAE/hjt-vae-1.png"><br>这个motif在JT-VAE的时候被称为substructure.二者其实是非常类似的,都是通过把苯环等变成一个整体,从而降低训练的难度.但是区别也是存在的,motif可以是并环或者比较大的结构,而substructure只能是单环之类的比较小的结构.</p>
+<h3 id="HJT-VAE-具体思路"><a href="#HJT-VAE-具体思路" class="headerlink" title="HJT-VAE 具体思路"></a>HJT-VAE 具体思路</h3><p>作者提出了基于 motif 的hierarchical-VAE. 这个 motif 是预先就提取好的.在进行分子生成的时候,分子一点一点的往上添加 motif.<br>HJT-VAE整体需要考虑的事情有三个:</p>
+<ol>
+<li>Motif的提取</li>
+<li>Encoder</li>
+<li>Decoder<h3 id="Motif-Extraction"><a href="#Motif-Extraction" class="headerlink" title="Motif Extraction"></a>Motif Extraction</h3>这一步属于数据预处理,通过这一步提取出数据集中集中度比较高的Motif,从而构建Vocabulary.作者把每一个 Motif 看成一个分子图中的子图,所有的 Motif 联合起来会覆盖整个分子.在提取 Motif 的时候会执行以下步骤:</li>
+<li>断开所有的桥键(断开这个键并不会改变这个分子的有效性),此时会把分子图拆开成几个不连通的子图</li>
+<li>提取出训练集中出现次数大于等于 100 的子图</li>
+<li>如果某个字图没有被选为 Motif 则把他分解成环和键并作为 motif.</li>
+<li>将所有 motif 收集记为 vocab<h3 id="Encoder部分"><a href="#Encoder部分" class="headerlink" title="Encoder部分"></a>Encoder部分</h3>Encoder核心分为三个部分,这三层是从精细的原子连通图到关注连接点的Attachment层再到比较粗糙Motif连接图.<h3 id="Atom-层"><a href="#Atom-层" class="headerlink" title="Atom 层"></a>Atom 层</h3>原子层记录了原子之间是如何连接的,记录了$(u,v)$其中 $u,v$ 是原子.同时还记录了原子之间的键 $b_{uv}$.原子所包含的信息有原子类型以及电荷性(charge).这一层保存了decoding时所需要的产生图的必要信息.<h3 id="Attachment-层"><a href="#Attachment-层" class="headerlink" title="Attachment 层"></a>Attachment 层</h3>这一层决定了 Motif 中的什么节点(原子)与其他 Motif 连接.每个Attachement层中的Node都是两个子图的连接点(原子). $A_i = (S_i,{v_j})$ 其中$S_i$为这个连接点所在的Motif, ${v_j}$是Atom层顶点的信息.这一层在decoding时保存了关键连接点的信息, 用于判断每个Motif相连接时应该是哪个原子与哪个原子进行连接.<h3 id="Motif-层"><a href="#Motif-层" class="headerlink" title="Motif 层"></a>Motif 层</h3>这一层记录了 Motif 的信息以及 Motif 之前的大致连接.<br>注意这里是树结构存储的,理由是在根据Motif生成图的时候通过树形结构会比较容易(其实我感觉这里是因为JT-VAE这么做的,效果还可以就继续沿用了这个方法)<h3 id="层间关系"><a href="#层间关系" class="headerlink" title="层间关系"></a>层间关系</h3>作者还在层与层之间做了连接,比如从原子到 Attachment 层,以及 Attachment 到 Motif 层,这些层间的连接同样会通过 MPN 传播. 对于 Attachment 和 Motif 其编码方式都是 One-hot. 之所以引入这些连接,从符合直觉的方式讲是为了让信息共享,从实现的角度讲是为了保证Encoder生成Z的时候可以用到所有层的信息.<h3 id="Decoder部分"><a href="#Decoder部分" class="headerlink" title="Decoder部分"></a>Decoder部分</h3>首先从第一个Motif $S_1,A_1$开始,预测$S_2,A_2$ 之后从通过$S_1,S_2,A_1,A_2$去预测$S_3,A_3$以此类推.<br>即:$P(G) = \int_zP(z)\Pi_kP(S_k,A_k|S_{&lt;k},A_{&lt;k},z)dz$<br>具体每一步就是先通过motif prediction 预测motif,以及通过该attachment prediction预测attachment. 之后再决定新的motif如何被添加到当前的图中.<h3 id="一些补充"><a href="#一些补充" class="headerlink" title="一些补充"></a>一些补充</h3>作者这里的思路是倒着想的,为了保证能够重构大分子,首先先提出motif的概念,我们需要先从一个树中一点一点把motif连接好,在连接的过程中考虑如何选择正确的motif,最后考虑具体的连接情况. 在确定好decoder的思路之后根据decoder确定encoder该怎么实现.<h2 id="具体实现细节"><a href="#具体实现细节" class="headerlink" title="具体实现细节"></a>具体实现细节</h2><h3 id="Encoder部分-1"><a href="#Encoder部分-1" class="headerlink" title="Encoder部分"></a>Encoder部分</h3>由于分子的连接方式以及各种层的连接方式都是通过图或树的方式连接的,所以首先提出了MPN方法.<h4 id="Atom-MPN"><a href="#Atom-MPN" class="headerlink" title="Atom MPN"></a>Atom MPN</h4>参数说明:</li>
+</ol>
+<ul>
+<li>原子特征 + embedding -&gt; $e(a_u)$</li>
+<li>化学键特征 + embedding -&gt; $e(b_{uv})$<br>将二者联合起来通过MPN网络. 为了尽可能保证信息充分利用,整个图神经网络会循环T遍保证converge.<h4 id="Attachment-MPN"><a href="#Attachment-MPN" class="headerlink" title="Attachment MPN"></a>Attachment MPN</h4>$f_{A_i} = MLP(e(A_i),\Sigma_{v\in S_i}h_v$.<br>其中$e(A_i)$是attachment node的embedding, $h_v$是这个Motif中的其他原子特征.<br>${h_{A_i}} = MPN({f_{A_i}{e(d_{ij})}})$<br>其中$d_{ij}$ 表示如果i是j的第几个child, 如果i是父节点的话 $d_ij$就为0<h4 id="Motif-MPN"><a href="#Motif-MPN" class="headerlink" title="Motif MPN"></a>Motif MPN</h4></li>
+<li>Motif特征 + embedding -&gt; $e(S_i)$</li>
+<li>attachment的特征 -&gt; $h_{A_i}$<br>$f_{S_i} = MLP(e(S_i),h_{A_i})$<br>${h_{S_i}} = MPN({f_{S_i}{e(d_{ij})}})$<h4 id="Z"><a href="#Z" class="headerlink" title="Z"></a>Z</h4>$Z_G = \mu(h_{S_1}) + exp(\Sigma(h_{S_1})) \times \epsilon<br>$<br>上述公式是经过VAE reparameterization trick过后的,其本质还是利用了$h_{S_1}$ 也就是根节点的Motif特征.</li>
+</ul>
+<h3 id="Decoder部分-1"><a href="#Decoder部分-1" class="headerlink" title="Decoder部分"></a>Decoder部分</h3><h4 id="Motif-1"><a href="#Motif-1" class="headerlink" title="Motif"></a>Motif</h4><p>首先先通过上一个节点Motif $S_k$以及$Z_G$ 通过MLP以及softamx 求出下一个motif $S_t$<br>$P_{S_t} = softmax(MLP(h_{S_k}, Z_G))$</p>
+<h4 id="Attachment"><a href="#Attachment" class="headerlink" title="Attachment"></a>Attachment</h4><p>同样的方法去预测Attachment<br>$P_{A_t} = softmax(MLP(h_{S_k}, Z_G))$<br>通过这个预测能够显著减少排列组合时的计算量</p>
+<h4 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h4><p>通过将两个Motif的两个子结构,连接组成一对,之后选择最合适的点.进行拼接<br>$h_M = \Sigma_j MLP(h_{u_j},h_{v_j})$<br>$P_M = softmax(h_M x Z_G)$</p>
+<blockquote>
+<p>Hierarchical Generation of Molecular Graphs using Structural Motifs</p>
+</blockquote>
+<h3 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h3><p>同VAE 不再赘述.</p>
+<h2 id="实践情况"><a href="#实践情况" class="headerlink" title="实践情况"></a>实践情况</h2><p>在实践中,此模型会在 sample 中生成大量重复的分子. 即不同的 z 会产生相同的分子.</p>
+<h2 id="点评"><a href="#点评" class="headerlink" title="点评"></a>点评</h2><p>训练时作者用的是polymer的数据.对分子量比较大的数据集来说, HJT-VAE无疑是比较好的模型了. 但是对小分子的模型,我比较迟怀疑态度.</p>
+<div><h1>推荐文章</h1><ul><li><a href="http://kevinvfeng.github.io/2021/07/18/MG-Bert/">MG-Bert (Molecular Graph BERT)</a></li><li><a href="http://kevinvfeng.github.io/2021/06/16/WAE/">WAE</a></li><li><a href="http://kevinvfeng.github.io/2021/06/02/JT-VAE/">JT-VAE</a></li></ul></div>
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2021 - 2021 Kevin Feng的图书馆
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Kevin Feng
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

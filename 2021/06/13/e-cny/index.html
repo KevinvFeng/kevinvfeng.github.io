@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Feng的图书馆 || 数字人民币(DCEP E-CNY) 简单介绍&amp;消息汇总</title>
+    <meta name="author" content="Kevin Feng">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLLPQ749C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JWLLPQ749C');
+    </script>
+    <script data-ad-client="ca-pub-2050152873704053" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Kevin Feng的图书馆</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Kevin Feng的图书馆</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>数字人民币(DCEP E-CNY) 简单介绍&amp;消息汇总 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/6/13
+        </span>
+        
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            
+        
+        <span class="category">
+            <a href="/categories/Other">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Other
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/E-CNY" style=color:#00bcd4>
+                    E-CNY
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/DCEP" style=color:#00bcd4>
+                    DCEP
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/NFC" style=color:#ffa2c4>
+                    NFC
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>数字人民币（E-CNY）,又称数字货币电子支付（英语：Digital Currency Electronic Payment,缩写：DC/EP）,是中国人民银行发行的法定数字货币,主要用于流通中现金（M0）,由指定运营机构参与运营并向公众兑换,货币以电子形式支付,价值与人民币的纸钞和硬币同等.数字人民币目前由中国人民银行小规模试点发行,处于内部封闭试点测试阶段,其正式推出尚无时间表. 本文将会介绍,目前为止数字人民币的基本情况以及,目前对日常生活的支持情况.</p>
+<a id="more"></a>
+<h2 id="数字人民币基本介绍"><a href="#数字人民币基本介绍" class="headerlink" title="数字人民币基本介绍"></a>数字人民币基本介绍</h2><p>数字人民币说白了就是电子钱.跟纸币、银行里的存款,微信支付宝里的余额没有区别.未来在日常生活中可以用花钱,刷微信支付宝的地方就可以用数字人民币.</p>
+<h3 id="数字人民币的特点"><a href="#数字人民币的特点" class="headerlink" title="数字人民币的特点"></a>数字人民币的特点</h3><ol>
+<li>地位高： 数字人民币地位等同于纸币(M0),比银行的存款（M1)以及支付宝、微信（M2,也可以算成M1)的地位要高不少. 私有银行可以倒闭,存在银行的钱可以要不回来,但是数字人民币的钱就是实打实的钱.在中国境内买东西的时候商家可以不支持支付宝微信,可以不支持借记卡、信用卡,但是绝对不能拒收数字人民币（除非技术不支持）</li>
+<li>方便：<ul>
+<li>城市里面的人们现在应该已经基本习惯于刷微信支付宝而不是现金了. 数字人民币跟其他电子支付一样快捷,且没有现金需要找零的麻烦.</li>
+<li>可以采用NFC支付,通过碰一碰的方式直接付款,而不是扫码.整个交易过程省去了手机解锁、打开app、打开付款吗等环节,理论上快捷很多（目前好像还没达到,现在流程跟支付宝差不多）.</li>
+<li>转账方便,实时到账（其实跟支付宝也差不多）</li>
+</ul>
+</li>
+<li>国家可控： 站在国家的角度,采用数字人民币使得交易可以追踪,不像现金一样,谁跟谁交易了都不知道.</li>
+</ol>
+<h2 id="如何开通数字人民币"><a href="#如何开通数字人民币" class="headerlink" title="如何开通数字人民币"></a>如何开通数字人民币</h2><p>目前数字人民币有两种方式可以开通,一种是采用专用的app,需要申请；另一种是通过国有六大行的手机APP进入,这个体验不好,但是不需要申请.</p>
+<h3 id="专门的数字人民币APP"><a href="#专门的数字人民币APP" class="headerlink" title="专门的数字人民币APP"></a>专门的数字人民币APP</h3><ol>
+<li>去国有六大行找专人询问数字人民币</li>
+<li>他们会出示一个二维码,通过微信（支付宝应该也可）扫一扫,填入相关信息.</li>
+<li>等待两天、重新进入这个页面,iOS系统可以找到兑换码,安卓似乎可以直接下载数字人民币APP</li>
+<li>iOS用户需要在App Store中通过兑换码兑换数字人民币APP</li>
+<li>注册账号即可使用</li>
+</ol>
+<h3 id="银行APP下的数字人民币"><a href="#银行APP下的数字人民币" class="headerlink" title="银行APP下的数字人民币"></a>银行APP下的数字人民币</h3><ol>
+<li>以中国银行APP为例,打开中国银行手机银行APP</li>
+<li>首页-&gt; 更多-&gt; 支付-&gt; 数字人民币</li>
+<li>第一次进入需要填入一些信息之后即可使用.</li>
+</ol>
+<h3 id="两种APP入口的区别"><a href="#两种APP入口的区别" class="headerlink" title="两种APP入口的区别"></a>两种APP入口的区别</h3><ul>
+<li>数字人民币APP可以绑定多个数字钱包,互相转账也更方便.而银行APP内置的数字人民币实测只能看到绑定的银行的钱包,看不到其他银行的钱包.</li>
+<li>采用银行APP进入数字人民币流程更复杂使用体验也更差一些,唯二的优点就是少下载一个APP以及现在体验不需要去找银行的人开通内测白名单.</li>
+</ul>
+<h2 id="实际体验"><a href="#实际体验" class="headerlink" title="实际体验"></a>实际体验</h2><h3 id="转账"><a href="#转账" class="headerlink" title="转账"></a>转账</h3><p>实时到账,快捷,但是体验与微信支付宝略差,原因无他只是因为转账需要输入手机号或者钱包ID.这个信息获取比较麻烦. 通过手机号转账还要选择对应的银行,必须先找要转账的人问明白了.</p>
+<h3 id="付款"><a href="#付款" class="headerlink" title="付款"></a>付款</h3><ul>
+<li>没体验过线下扫码,但是个人估计与支付宝无差.</li>
+<li>线上目前可以支付的途径并不多. 我体验过京东的网购,体验是不错的,没有app间跳转,也不需要输入密码直接扣款.</li>
+<li>如果数字人民币里余额不足,会立即提示钱包里没那么多钱让你先去充值.</li>
+</ul>
+<h3 id="存取款等"><a href="#存取款等" class="headerlink" title="存取款等"></a>存取款等</h3><p>存取款流程十分正常,但是不支持自动存款,这点会在下文”如何正确的使用数字人民币”中详细描述</p>
+<h2 id="如何正确的使用数字人民币"><a href="#如何正确的使用数字人民币" class="headerlink" title="如何正确的使用数字人民币"></a>如何正确的使用数字人民币</h2><p>我们首先应该将数字人民币目前的功能看做是一个电子钱包,而不是电子人民币管理中心, 数字人民币APP承担的功能仅仅只有纸币所具有的功能比如购买,转账,跟银行间进行存取款. 做不到的事情有: 买股票,买基金,跟好友进行转账,还花呗,还信用卡,存在余额宝里等其他支付宝能做到但是普通钱包做不到的事.所以他的功能仅仅替代了钱包而做不到替代支付宝.我们不用的小额零钱,支付宝会自动的帮我们存在余额宝里赚取收益,就算是存在银行卡里也有活期利息,但是数字人民币里的钱就不能产生收益,这点跟放在钱包里的钱是一样的.因此,我不建议在数字人民币里存入太多钱.<br>目前数字人民币的功能还不完善,仍有很多不方便的地方, 建议体验一下尝个鲜即可.<br>如果想深度体验,建议先看看有没有什么频繁花钱的地方是支持数字人民币的,比如线下超市 多点, 在线:京东,美团,饿了么等.</p>
+<h2 id="一些Q-amp-A"><a href="#一些Q-amp-A" class="headerlink" title="一些Q&amp;A"></a>一些Q&amp;A</h2><h3 id="是否支持NFC"><a href="#是否支持NFC" class="headerlink" title="是否支持NFC"></a>是否支持NFC</h3><p>华为支持,其他安卓机不明,苹果实测不支持.</p>
+<h3 id="与Apply-Pay等支持NFC的区别"><a href="#与Apply-Pay等支持NFC的区别" class="headerlink" title="与Apply Pay等支持NFC的区别"></a>与Apply Pay等支持NFC的区别</h3><p>付款操作流程及体验应该没有区别,不过由于数字人民币本身地位比银行高一点所以理论上会更好一点.</p>
+<h3 id="手机离线能否支付"><a href="#手机离线能否支付" class="headerlink" title="手机离线能否支付"></a>手机离线能否支付</h3><p>支持NFC的手机应该可以</p>
+<h3 id="目前是否有Bug-钱会不会多扣之类的"><a href="#目前是否有Bug-钱会不会多扣之类的" class="headerlink" title="目前是否有Bug, 钱会不会多扣之类的"></a>目前是否有Bug, 钱会不会多扣之类的</h3><p>周围有人实测付了款之后过了一两天原价退款的. 不明原因</p>
+<h3 id="如何在数字人民币中开通京东等在线支付的支持"><a href="#如何在数字人民币中开通京东等在线支付的支持" class="headerlink" title="如何在数字人民币中开通京东等在线支付的支持"></a>如何在数字人民币中开通京东等在线支付的支持</h3><ol>
+<li>打开数字人民币</li>
+<li>选择钱包点击更多,选择子钱包</li>
+<li>在对应app选项中打开开关之后完成配置即可</li>
+</ol>
+<h3 id="数字人民币可以有多个钱包吗"><a href="#数字人民币可以有多个钱包吗" class="headerlink" title="数字人民币可以有多个钱包吗?"></a>数字人民币可以有多个钱包吗?</h3><p>可以, 一个银行一个钱包,多个银行就可以多个钱包了</p>
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><p>数字人民币红包活动送的钱要尽快花掉, 钱是无法转到银行卡里的(国家逼着你花钱,偷偷存起来是不能的(-_-)), 一段时间不用了的话钱是会被收回去的.</p>
+
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2021 - 2021 Kevin Feng的图书馆
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Kevin Feng
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Feng的图书馆 || JT-VAE</title>
+    <meta name="author" content="Kevin Feng">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLLPQ749C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JWLLPQ749C');
+    </script>
+    <script data-ad-client="ca-pub-2050152873704053" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Kevin Feng的图书馆</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Kevin Feng的图书馆</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>JT-VAE </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/6/2
+        </span>
+        
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Machine-Learning" style=color:#ff7d73>
+                    Machine Learning
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Molecule-Generation" style=color:#1bccbc>
+                    Molecule Generation
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Molecule-Optimization" style=color:#ff7d73>
+                    Molecule Optimization
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <p>JT-VAE通过利用 juction tree 以及原子图模型解决了分子生成中生成无效分子的问题</p>
+<a id="more"></a>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇所介绍的模型,并不需要完全掌握细节,因为就现在 2021 年来看其实这个代码稍微有些过时, 实际效果也并没有那么理想, 所以具体细节不是很重要. 但是作者考虑的将分子图拆解出来的方法是完全可以借鉴思考的,这一部分作者思考的深度是有的.</p>
+<h2 id="其他模型的问题"><a href="#其他模型的问题" class="headerlink" title="其他模型的问题"></a>其他模型的问题</h2><p>作者提出了两个在以往基于 SMILES 的生成模型中存在的问题:</p>
+<ol>
+<li>Smiles 编码不能帮助人们以及计算机了解分子之间的相似性,如图所示. 换句话说,SMILES 就不是用来表示相似性的.<br> <img src="/2021/06/02/JT-VAE/JT-VAE-issue-1.png"><blockquote>
+<p>作者的例子我觉得不好,因为没有将两个分子做归一化处理, 如果不做的话,相同的分子都可以有差异很大的SMILES表示. 图中给的例子做了归一化处理之后差异就很小了. 但是可以参考附录中的例子,那个例子显示的SMILES都是用openbabel归一化之后的.</p>
+</blockquote>
+</li>
+<li>在分子有效性等其他化学指标上,用图表示比用 smiles 更容易一点. 当然这是作者的假设,不过是有道理的\</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>因为上述的两个问题,所以作者采用了图的方法来做分子生成</p>
+<h2 id="如果用图会带来什么新问题"><a href="#如果用图会带来什么新问题" class="headerlink" title="如果用图会带来什么新问题?"></a>如果用图会带来什么新问题?</h2><p>个人理解,其实对于有机分子来说,只要不是环,那分子还是挺像一个计算机学中的图的,但是如果有了苯环等其他环,这个图的处理就会比较麻烦.所以核心还是在怎么处理环上.<br>对于环简单的办法就是把苯环或者其他的环都看成一个整体,跟原子的地位相当.<br><img src="/2021/06/02/JT-VAE/graph2tree-1.png"><br>如图所示,这就是作者把图变成树的示例.<br>具体这是怎么变成树的,回头再讲.</p>
+<h2 id="除了树-还有别的吗"><a href="#除了树-还有别的吗" class="headerlink" title="除了树,还有别的吗?"></a>除了树,还有别的吗?</h2><p>除了树,作者也存储了所有关于节点的信息<br>这一部分基本上就是图算法了</p>
+<h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><ol>
+<li>从 SMIELS 搞出图以及 junction tree. 之后分成两步走,一步是 Junction Tree 另一部分是 Atom Graph.<br><img src="/2021/06/02/JT-VAE/Encoder-Structure.png"></li>
+</ol>
+<h3 id="Junction-Tree"><a href="#Junction-Tree" class="headerlink" title="Junction Tree"></a>Junction Tree</h3><p>从图先通过 Tree Decomposition 生成一个树,之后再将这个树表示成图</p>
+<h4 id="Tree-Decomposition"><a href="#Tree-Decomposition" class="headerlink" title="Tree Decomposition"></a>Tree Decomposition</h4><p><img src="/2021/06/02/JT-VAE/Tree-decomp.png"><br><img src="/2021/06/02/JT-VAE/remove-bridge-ring.png"><br><img src="/2021/06/02/JT-VAE/remove-ring.png"><br><img src="/2021/06/02/JT-VAE/mst.png"></p>
+<ol>
+<li>通过 rdkit 给分子进行编号 </li>
+<li>通过 rdkit 统计所有的不成环的边以及所有的环</li>
+<li>将拥有三个及以上共同原子的环连接起来看做一个环(避免桥环). 此处如果仅有两个共同原子则为并环</li>
+<li>通过添加节点的方式解决不成环边共享共同原子的在图中成环的方式</li>
+<li>通过最小生成树算法搞出一个图</li>
+</ol>
+<p>至此我们成功的将一个图转化成了一个树</p>
+<h4 id="Tree-gt-Z-T"><a href="#Tree-gt-Z-T" class="headerlink" title="Tree -&gt; $Z_T$"></a>Tree -&gt; $Z_T$</h4><p><img src="/2021/06/02/JT-VAE/build-vocab.png"><br><img src="/2021/06/02/JT-VAE/gru.png"><br><img src="/2021/06/02/JT-VAE/node-agg.png"></p>
+<ol>
+<li>找到 root 节点,root 节点是0 号原子所在的基团</li>
+<li>先 bottom-up 从最下方的叶子节点向上走传播,传播用的方式是 GRU. 对于一个 Node 如果拥有两个 child-node 则 GRU 会同时引入两个点的 hidden vector之和.</li>
+<li>再 top-down. bottom-up+top-down结合相当于完成了一个树的遍历,这一部分从图的思想会比较容易理解,正向传播以及反向重新传播一次.</li>
+<li>之后我们根据图的每个Node, 共同求和得到了Z_T_message(<strong>注意</strong> 这个地方表示的是树的整体)</li>
+<li>同样我们再根据顶点(root)的信息得到了Z_tree 这个Z于上面的Z_T_message是有区别的.二者共同结合得到了Junction-Tree的Z.</li>
+</ol>
+<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><p>Graph 相较 Tree Decomposition 多少还是容易一点的.<br>对于一个分子图,我们能获取到的信息有:</p>
+<ul>
+<li>原子特征</li>
+<li>化学键特征</li>
+<li>原子之间的邻接表</li>
+<li>化学键的邻接表<br>通过以上四种信息的组合可以得到分子图这边的表示信息.<br><img src="/2021/06/02/JT-VAE/graph.png"></li>
+</ul>
+<h4 id="原子特征"><a href="#原子特征" class="headerlink" title="原子特征"></a>原子特征</h4><p>表示原子的特征有如下几类:</p>
+<ul>
+<li>原子是什么</li>
+<li>原子用了几个键</li>
+<li>电荷数</li>
+<li>有没有手性</li>
+<li>是否是成芳香环<br><img src="/2021/06/02/JT-VAE/af.png"><br>将这几个特征拼起来就是原子的特征</li>
+</ul>
+<h4 id="化学键特征"><a href="#化学键特征" class="headerlink" title="化学键特征"></a>化学键特征</h4><p>同样有多个类来表示化学键</p>
+<ul>
+<li>键的类型</li>
+<li>顺反异构<br>拼接起来就是键的类型<br><img src="/2021/06/02/JT-VAE/bf.png"></li>
+</ul>
+<h4 id="图的特征"><a href="#图的特征" class="headerlink" title="图的特征"></a>图的特征</h4><p>通过邻接矩阵,表示一个图,这部分仅仅是为了存储信息并用于标识图传播算法的方向,并不会计算特征. 相当于一个lookup table.<br><img src="/2021/06/02/JT-VAE/ag.png"><br><img src="/2021/06/02/JT-VAE/bg.png"></p>
+<h3 id="计算图特征的方式"><a href="#计算图特征的方式" class="headerlink" title="计算图特征的方式"></a>计算图特征的方式</h3><p>树的计算方式和图的计算方式都差不多,可以参考前面的图.本质上就是通过MPN转2圈.<br>关于为什么转两圈,作者这里认为重复传播两次已经足够了,但是实时是不是这样并不一定.只是普遍意义上认为MPN重复循环的传播会导致整个图比较converge.</p>
+<h3 id="中场休息"><a href="#中场休息" class="headerlink" title="中场休息"></a>中场休息</h3><p>上文中我们得到了三个Z, Junction-Tree中两个+图的一个Z_G. 接下来将要利用这三个Z做Decoder.<br>详尽代码这里不做讨论,但是需要抓住的重点有如下两个:</p>
+<h3 id="生成骨架"><a href="#生成骨架" class="headerlink" title="生成骨架"></a>生成骨架</h3><p><img src="/2021/06/02/JT-VAE/td.png"><br>如图所示,生成骨架采用DFS(深度优先搜索)的方式. 首先从root开始, 按如下流程作出决策</p>
+<ol>
+<li>是否需要产生新的节点<ol>
+<li>如果是,产生什么节点.</li>
+<li>如果不是,向反方向传播</li>
+</ol>
+</li>
+</ol>
+<p>以图片为例:<br>首先从1节点开始,需要产生2就从1-&gt;2进行一次传播.2节点判断需要产生3节点. 到3节点,判断不需要产生新的节点,就从3-&gt;2进行一次传播. 2继续判断需要产生4节点. 如此往复知道树已经生成完了.<br>个人理解用图作为提取结构的方法到这里才得到充分体现. 我们可以很方便的去生成一个完整的树,但是如果改成图生成起来就会非常困难.图的遍历不如树来的简单直观,便于计算.</p>
+<h3 id="生成细节-判断构象"><a href="#生成细节-判断构象" class="headerlink" title="生成细节,判断构象"></a>生成细节,判断构象</h3><p><img src="/2021/06/02/JT-VAE/score.png"><br>除了生成骨架,另一个需要注意的细节是,作者是如何让模型判断应该如何拼接分子的. 比如苯环有六个可以接入的点,那么如何选择正确的结合点就是黑心问题了.<br>作者的解决思路如下:</p>
+<ol>
+<li>先从树的结构中判断拼接什么片段,以及大致接在什么位置</li>
+<li>产生遍历产生所有可能的拼接情况</li>
+<li>通过rdkti判断那些情况合法,哪些情况不合法</li>
+<li>对所有合法的情况进行一次打分,选择打分较高的作为最终的生成方案. </li>
+<li>重复以上步骤直到所有的树节点都构建完成得到最终分子</li>
+</ol>
+<h3 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h3><p>关于Loss Function除了VAE本身的recon_loss+kl_loss以外,作者还因为采用了JT以及图的形式使用了其他的Loss具体有:</p>
+<ul>
+<li>word_loss</li>
+<li>topo_loss</li>
+<li>assm_loss</li>
+<li>stereo_loss(可选)</li>
+<li>kl_loss</li>
+<li>prop_loss</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1802.04364">Junction Tree Variational Autoencoder for Molecular Graph Generation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/treeforever/tdls.github.io/blob/master/slides/20180924_RouzbehAfrasiabi.pdf">Slides From TDLS</a> </li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><ul>
+<li>归一化的SMILES<br><img src="/2021/06/02/JT-VAE/JT-VAE-issue-2.jpg"></li>
+</ul>
+<div><h1>推荐文章</h1><ul><li><a href="http://kevinvfeng.github.io/2021/07/18/MG-Bert/">MG-Bert (Molecular Graph BERT)</a></li><li><a href="http://kevinvfeng.github.io/2021/06/16/WAE/">WAE</a></li><li><a href="http://kevinvfeng.github.io/2021/05/26/CVAE/">Conditional-VAE模型</a></li></ul></div>
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2021 - 2021 Kevin Feng的图书馆
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Kevin Feng
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
