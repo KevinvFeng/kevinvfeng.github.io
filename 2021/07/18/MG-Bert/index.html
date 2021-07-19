@@ -201,7 +201,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/QSAR" style=color:#879cff>
+                <a href="/tags/QSAR" style=color:#00bcd4>
                     QSAR
                 </a>
             </span>
@@ -211,7 +211,7 @@
     </div>
 
     <div class="content" v-pre>
-        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>作者将Bert的思想与GNN结合起来，采用了预训练的方式提升了分子属性预测的准确率. 同时作者的实验结果表明,氢在分子图中同样很重要.</p>
+        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>作者将Bert的思想与GNN结合起来，采用了预训练的方式提升了分子属性预测的准确率. 在 transformer encoder 处引入了MPN, 同时去掉了 position embedding, 另外对于分子图引入了一个连接所有分子的 supernode, 其余跟 bert 相同. 最终获得了 11 个分子性质预测任务的 sota. QSAR 实测中,部分任务获得了比 CMPNN, XGB 略好的结果.</p>
 <a id="more"></a>
 
 <h2 id="模型结构及训练方法等"><a href="#模型结构及训练方法等" class="headerlink" title="模型结构及训练方法等"></a>模型结构及训练方法等</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ol>
