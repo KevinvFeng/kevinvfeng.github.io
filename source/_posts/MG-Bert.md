@@ -8,7 +8,7 @@ tags:
 ---
 
 ## TL;DR
-作者将Bert的思想与GNN结合起来，采用了预训练的方式提升了分子属性预测的准确率. 同时作者的实验结果表明,氢在分子图中同样很重要.
+作者将Bert的思想与GNN结合起来，采用了预训练的方式提升了分子属性预测的准确率. 在 transformer encoder 处引入了MPN, 同时去掉了 position embedding, 另外对于分子图引入了一个连接所有分子的 supernode, 其余跟 bert 相同. 最终获得了 11 个分子性质预测任务的 sota. QSAR 实测中,部分任务获得了比 CMPNN, XGB 略好的结果.
 <!--more-->
 
 ## 模型结构及训练方法等
