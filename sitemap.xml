@@ -3,17 +3,17 @@
 
 
     <sitemap>
-        <loc>http://kevinvfeng.github.io/post-sitemap.xml</loc>
+        <loc>https://kevinvfeng.github.io/post-sitemap.xml</loc>
         <lastmod>2021-07-19T11:06:53.596Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://kevinvfeng.github.io/category-sitemap.xml</loc>
+        <loc>https://kevinvfeng.github.io/category-sitemap.xml</loc>
         <lastmod>2021-06-15T07:29:39.867Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://kevinvfeng.github.io/tag-sitemap.xml</loc>
+        <loc>https://kevinvfeng.github.io/tag-sitemap.xml</loc>
         <lastmod>2021-07-19T11:06:53.596Z</lastmod>
     </sitemap>
 

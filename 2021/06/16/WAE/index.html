@@ -194,7 +194,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Machine-Learning" style=color:#1bccbc>
+                <a href="/tags/Machine-Learning" style=color:#ffa2c4>
                     Machine Learning
                 </a>
             </span>
@@ -209,7 +209,7 @@
 <h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><p>VAE 有着天然的硬伤. VAE为了解决两点之间近似的问题,在 Encoder 产生出 mu(z)以及 sigma(z)之后引入了 reparameteration tricks , 同时也带来了一个符合正态分布的随机变量. 这个随机变量可以导致两个不同样本的输入在经过 Encoder 生成到 Z的时候会有可能产生相同的 Z. 所以相同的 Z会在训练 decoder 的时候被要求产生不同的输出. 因为这个 Z 会同时受制于多个输出的影响,当然就比较模糊了.</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>避免这个问题的办法就是取消引入这个随机变量.但是一般的解决办法就退化成了 AE.所以作者尝试通过引入wasserstein 距离来计算</p>
 <h2 id="一些基础知识"><a href="#一些基础知识" class="headerlink" title="一些基础知识"></a>一些基础知识</h2><h3 id="wasserstein-distance"><a href="#wasserstein-distance" class="headerlink" title="wasserstein distance"></a>wasserstein distance</h3><p>因为可以被形象的描述从从一个土堆中不断地搬土,直到把原土堆搬到另外一个地方,固又名推土机距离, 测量的是从一个分布变换到另一个分布之间的差异.<br><img src="/2021/06/16/WAE/earth_move.png"><br>以上图为例,$W(P_r,P_\theta) = $把每一块土搬过去的代价.这个代价有两部分,一部分是搬了多少量(weight)另一部分是搬了多远(distance). 当然因为搬土的过程是多种多样的,有的可能代价更大有的可能代价更小,所以这个距离衡量的其实是最小搬运代价<br>$$W_{c}\left(P_{X}, P_{G}\right):=\inf <em>{\Gamma \in \mathcal{P}\left(X \sim P</em>{X}, Y \sim P_{G}\right)} \mathbb{E}_{(X, Y) \sim \Gamma}[c(X, Y)]$$<br>当然 因为求的是下确界, 所以要统计所有的可能性这就导致了计算代价太大了时间复杂度是$O(N^3\lg N)$ 所以需要采用近似算法才能正确使用.<br>##</p>
-<div><h1>推荐文章</h1><ul><li><a href="http://kevinvfeng.github.io/2021/07/18/MG-Bert/">MG-Bert (Molecular Graph BERT)</a></li><li><a href="http://kevinvfeng.github.io/2021/06/02/JT-VAE/">JT-VAE</a></li><li><a href="http://kevinvfeng.github.io/2021/05/26/CVAE/">Conditional-VAE模型</a></li></ul></div>
+
     </div>
 
     

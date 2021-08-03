@@ -194,7 +194,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Machine-Learning" style=color:#879cff>
+                <a href="/tags/Machine-Learning" style=color:#1bccbc>
                     Machine Learning
                 </a>
             </span>
@@ -210,7 +210,7 @@
 <h3 id="AutoEncoder的作用"><a href="#AutoEncoder的作用" class="headerlink" title="AutoEncoder的作用"></a>AutoEncoder的作用</h3><p>AE的用途有不少，主要的核心任务是可以用于降维，类似PCA。 同时也可以生成不同的结果用于数据增强。</p>
 <h1 id="VAE模型"><a href="#VAE模型" class="headerlink" title="VAE模型"></a>VAE模型</h1><h2 id="VAE基础结构"><a href="#VAE基础结构" class="headerlink" title="VAE基础结构"></a>VAE基础结构</h2><p>VAE在AE的模型上稍微改变了对latent hidden layer。将latent z 拆成了两个，mu以及logvar，之后再将它们合起来。</p>
 <p><img src="/2021/05/21/VAE-Model/vae_sample_with_kld.png"><br>图为用vae训练后根据不同mu，sample出的图片。可以明显的看出图片渐变的过程。我们希望渐变的过程是平滑的，这样就可以方便的找到两点之间的结果用于产生新的图片<br><img src="/2021/05/21/VAE-Model/vae_sample_no_kld.png"><br>我发现不用kld其实也差不多，但是下面的两张图区别就比较大了<br><img src="/2021/05/21/VAE-Model/vae_input_scatter_with_kld.png"><br><img src="/2021/05/21/VAE-Model/vae_input_scatter_no_kld.png"><br>不加kld的话，z的数值会比较大， 从而导致进行合理sample的时候会更困难，不利于sample.</p>
-<div><h1>推荐文章</h1><ul><li><a href="http://kevinvfeng.github.io/2021/07/18/MG-Bert/">MG-Bert (Molecular Graph BERT)</a></li><li><a href="http://kevinvfeng.github.io/2021/06/16/WAE/">WAE</a></li><li><a href="http://kevinvfeng.github.io/2021/06/02/JT-VAE/">JT-VAE</a></li></ul></div>
+
     </div>
 
     
