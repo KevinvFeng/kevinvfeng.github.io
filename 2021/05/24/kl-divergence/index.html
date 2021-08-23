@@ -194,7 +194,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Machine-Learning" style=color:#ff7d73>
+                <a href="/tags/Machine-Learning" style=color:#879cff>
                     Machine Learning
                 </a>
             </span>
@@ -269,7 +269,7 @@
 </tbody></table>
 <h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>交叉熵包含“交叉”二字，所以意味着这需要两个分布，p以及q。交叉熵的实际意义是用p(x)的编码方式编码q(x)会需要多少信息。依然用上表举例，用p(x)编码q(x)：<br>$H(q,p) = 0.5<em>2+0.25</em>2+0.125<em>2 = 2$，即平均需要2bits表示q(x)，这大于最优方案1.75bit<br>那反过来用q(x)编码p(x)呢？<br>$H(p,q) = 0.25</em>1+0.25<em>2+0.25</em>3*2 = 2.25$ 同样比p(x)的熵 2要大。</p>
 <h2 id="KL散度"><a href="#KL散度" class="headerlink" title="KL散度"></a>KL散度</h2><p>回归正题，KL散度就是两个分布的熵的差异，也就是交叉熵减最优编码的熵<br>$KL(p||q) = H(p,q)-H(p)$<br>用上面的例子来说，就是 2.25-2 = 0.25<br>KL散度相较于交叉熵的优势在于，当两个分布相同的时候loss为0，而交叉熵并不</p>
-
+<div><h1>推荐文章</h1><ul><li><a href="https://kevinvfeng.github.io/2021/08/19/torchdrug-1/">torchdrug 使用指南 采坑记录(1)</a></li><li><a href="https://kevinvfeng.github.io/2021/08/03/HamNet/">HamNet</a></li><li><a href="https://kevinvfeng.github.io/2021/07/18/MG-Bert/">MG-Bert (Molecular Graph BERT)</a></li></ul></div>
     </div>
 
     

@@ -3,15 +3,22 @@
 
 
     <url>
-        <loc>https://kevinvfeng.github.io/tags/QSAR/</loc>
-        <lastmod>2021-07-19T11:06:53.596Z</lastmod>
+        <loc>https://kevinvfeng.github.io/tags/torchdrug/</loc>
+        <lastmod>2021-08-23T06:36:13.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kevinvfeng.github.io/tags/Machine-Learning/</loc>
-        <lastmod>2021-07-19T11:06:53.596Z</lastmod>
+        <lastmod>2021-08-23T06:36:13.168Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/tags/QSAR/</loc>
+        <lastmod>2021-08-06T07:32:13.028Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

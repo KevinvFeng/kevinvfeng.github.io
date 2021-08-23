@@ -9,8 +9,8 @@
 
 
     <url>
-        <loc>https://kevinvfeng.github.io/2021/07/18/MG-Bert/</loc>
-        <lastmod>2021-07-19T11:06:53.596Z</lastmod>
+        <loc>https://kevinvfeng.github.io/2021/08/19/torchdrug-1/</loc>
+        <lastmod>2021-08-23T06:36:13.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +18,23 @@
 
     <url>
         <loc>https://kevinvfeng.github.io/2021/06/16/WAE/</loc>
-        <lastmod>2021-07-19T08:04:41.245Z</lastmod>
+        <lastmod>2021-08-10T02:47:13.056Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/2021/08/03/HamNet/</loc>
+        <lastmod>2021-08-06T07:32:13.028Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/2021/07/18/MG-Bert/</loc>
+        <lastmod>2021-07-19T11:06:53.596Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
