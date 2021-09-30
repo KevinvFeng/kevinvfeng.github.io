@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Feng的图书馆 || 不确定性量化方法 之 Evidential模型详解</title>
+    <meta name="author" content="Kevin Feng">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLLPQ749C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JWLLPQ749C');
+    </script>
+    <script data-ad-client="ca-pub-2050152873704053" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Kevin Feng的图书馆</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Kevin Feng的图书馆</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>不确定性量化方法 之 Evidential模型详解 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/9/30
+        </span>
+        
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Machine-Learning" style=color:#00bcd4>
+                    Machine Learning
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Math" style=color:#00bcd4>
+                    Math
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Deep-Learning" style=color:#879cff>
+                    Deep Learning
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>一个直接输出模型预测值以及其不确定性结果的神经网络模型, 优点是输出的不确定性结果是经过校准的并且对模型本身预测结果的损失并不大, 以及将这个方法迁移到其他的模型非常的容易(比其他直接获取的方法容易得多)</p>
+<a id="more"></a>
+
+<h2 id="从数学的角度理解不确定性"><a href="#从数学的角度理解不确定性" class="headerlink" title="从数学的角度理解不确定性"></a>从数学的角度理解不确定性</h2><p>正如我们针对同一个样本,多次实际测量的结果存在偏差一样,我们预测的值实际上也应该服从某个正态分布. 从 Ensemble 的角度来看应该符合如下的公式<br>$$ predict =  E[\mu] \qquad AU = E[\sigma^2] \qquad EU = Var[\mu]$$<br>其中 AU 是随机不确定性 EU 为认知不确定性. 这里说明一下 AU 以及 EU 的道理. 每个预测值都会天然有一个误差,这个误差就是 $\sigma$ ,所以对于多次测量,仍然带有的误差也就是$\sigma$的期望了. 对于 EU 而言, 每次预测出的$\mu$是不一样的,$\mu$代表了一个模型对结果的预测, 如果不同的模型给出的预测都不一样,可以代表这些模型没有达成共识, 侧面说明了这个数据是之前没有见过的, 预测结果差距越大就说明认知不确定性越大.</p>
+<h2 id="Evidential-模型"><a href="#Evidential-模型" class="headerlink" title="Evidential 模型"></a>Evidential 模型</h2><p>想要获取认知不确定性,我们需要获得$Var[\mu]$, 其中一种方法是Ensemble 多次测量, 另外一种方法就是 Evidential 模型了</p>
+<h3 id="模型思想"><a href="#模型思想" class="headerlink" title="模型思想"></a>模型思想</h3><p>我们要在一个神经网络模型里直接获取 $Var[\mu]$ 我们其实可以利用共轭先验的方法. 简单来说就是如果我们能够让神经网络预测出一个共轭先验的分布,我们就可以直接算出预测值 AU 以及 EU</p>
+<h4 id="共轭先验"><a href="#共轭先验" class="headerlink" title="共轭先验"></a>共轭先验</h4><p>先验就是贝叶斯定理中的先验,共轭在这里其实是表示比较容易计算的含义.<br>正态分布当$\sigma$已知的情况下,那么他的共轭先验就还是正态分布<br>正态分布当$\mu$已知的情况下,那么他的共轭先验就是伽马分布<br>正态分布当$\mu,\sigma$都未知的情况下,那么他的共轭先验就是正太逆伽马分布(Normal Inverse Gamma Distribution, NIG)<br>我们现在的情况就是$\mu,\sigma$都未知的情况, 所以这里主要研究的是 NIG.</p>
+<h4 id="NIG"><a href="#NIG" class="headerlink" title="NIG"></a>NIG</h4><p>这个分布本质上是分布的分布, 在这个分布中的每个点,代表的都是一个高斯分布, 如图所示.这个分布总共有四个参数$\mu, \lambda, \alpha, \beta$.根据定义可以证得: $$E[x] = \mu \qquad E[\sigma^2] = \frac{\beta}{\alpha-1} \qquad Var[x] = \frac{\beta}{\lambda(\alpha-1)}$$<br>所以对于神经网络而言,我们只要预测出这四个参数,就可以得到NIG, 有了 NIG (相当于我们得到了很多个预测结果),就可以得到预测值以及不确定性了</p>
+<h3 id="面临的问题"><a href="#面临的问题" class="headerlink" title="面临的问题"></a>面临的问题</h3><h4 id="如何获取-NIG-的四个参数"><a href="#如何获取-NIG-的四个参数" class="headerlink" title="如何获取 NIG 的四个参数"></a>如何获取 NIG 的四个参数</h4><p>我们的模型从以前的输出一个预测值变为了输出四个值, 这个其实不难办, 只需要在最后一层引入把输出的维度从 1 变为 4 就好了.并人为规定第几个值是哪个参数就行, 这个改造其实相当的简单,个人感觉与MC Dropout 改造难度差不多(=_=)</p>
+<h4 id="如何训练-设计-loss-function"><a href="#如何训练-设计-loss-function" class="headerlink" title="如何训练(设计 loss function)"></a>如何训练(设计 loss function)</h4><p>以往针对训练集我们可以简单地用 MSE 来作为 loss function,现在可不行了.我们需要设计一套复杂的函数来作为 loss function</p>
+<h2 id="换个角度理解认知不确定性"><a href="#换个角度理解认知不确定性" class="headerlink" title="换个角度理解认知不确定性"></a>换个角度理解认知不确定性</h2><p>在 NIG 分布的公式中我们可以看到 $Var[x]$ 与$E[\sigma^2]$ 只差了一个$\lambda$ 而这个$\lambda$ 在 <strong>学生 t 分布</strong> 中其实代表的就是 <strong>样本数-1</strong><br>这不难联想到, 我们在学有偏估计与无偏估计的时候的方差的期望<br>$E[S^2] = \sigma^2 + Var(x) = \sigma^2 - \sigma^2/n = \frac{n-1}{n}\sigma^2$ 所以有偏和无偏以及这跟不确定性的关系是什么呢<br>看图!<br><img src="/Evidential-Model/1.png"><br>首先我们有一个分布, 颜色越深表示概率越大<br><img src="/Evidential-Model/2.png"><br>打 X 的地方使我们获取到的数据点,这些点符合我们的分布. 我们可以从这些数据点中求得样本均值以及方差, 但是这跟我们真实分布的均值方差是有区别的! 因为我们的样本不是全量的样本只是从分布中抽样得来的,所以一定不准!<br><img src="/Evidential-Model/3.png"><br>那我们从样本获取到的均值跟真实的均值的差其实就是红点和绿点的偏差, 而 X 数据点的方差就是紫色的$\sigma^2$<br>我们为什么要做无偏估计呢就是因为我们只统计$\sigma^2$并不能测得我们样本均值与真实均值的偏差, 但是除以1/(n-1) 就可以了这只是因为 Var(x) 与 $\sigma^2$存在这样一个关系.<br>总的来说我们的 EU 认知不确定性也就是Var(x)也就是抽样得来的样本的与真实均值的偏差的方差也就是无偏估计跟有偏估计中的偏.</p>
+<div><h1>推荐文章</h1><ul><li><a href="https://kevinvfeng.github.io/2021/08/30/uncertainty-quantification/">不确定性简要介绍</a></li><li><a href="https://kevinvfeng.github.io/2021/08/19/torchdrug-1/">torchdrug 使用指南 采坑记录(1)</a></li><li><a href="https://kevinvfeng.github.io/2021/08/03/HamNet/">HamNet</a></li><li><a target="_blank" rel="noopener" href="https://vel.life/m%C3%97n%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F/">m×n矩阵的行列式</a></li></ul></div>
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2021 - 2021 Kevin Feng的图书馆
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Kevin Feng
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -3,14 +3,42 @@
 
 
     <url>
-        <loc>https://kevinvfeng.github.io/tags/torchdrug/</loc>
-        <lastmod>2021-08-23T06:36:13.168Z</lastmod>
+        <loc>https://kevinvfeng.github.io/tags/Deep-Learning/</loc>
+        <lastmod>2021-09-30T09:49:26.125Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/tags/Math/</loc>
+        <lastmod>2021-09-30T09:49:26.125Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kevinvfeng.github.io/tags/Machine-Learning/</loc>
+        <lastmod>2021-09-30T09:49:26.125Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/tags/Computer-Science/</loc>
+        <lastmod>2021-08-25T12:25:38.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/tags/Chemical/</loc>
+        <lastmod>2021-08-25T12:25:38.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kevinvfeng.github.io/tags/torchdrug/</loc>
         <lastmod>2021-08-23T06:36:13.168Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

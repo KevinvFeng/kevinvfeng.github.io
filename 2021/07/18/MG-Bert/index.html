@@ -194,7 +194,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Machine-Learning" style=color:#ff7d73>
+                <a href="/tags/Machine-Learning" style=color:#ffa2c4>
                     Machine Learning
                 </a>
             </span>
@@ -234,7 +234,7 @@
 <li>经过预训练后, 模型可以很好地编码不同原子类型<br><img src="/2021/07/18/MG-Bert/tsne.png"><br>如上图所示, 作者随机抽取了1000个预训练集中的分子(差不多22000个原子),经过transformer encoder后的信息. 经过t-SNE可视化之后就如上图所示. 可以很简单的看出即使是相同的原子, 在分子图中表示的结果也是不太一样的. 单一原子会被分成很多不同的cluster. 另外锁着还随机抽取了一个分子进行更深入的研究.结果表明,这个模型可以很明显的识别苯环中的碳以及非苯环中的碳. 这表明了模型可以较为容易的识别一阶邻域信息(跟这个原子相邻的原子的信息)甚至更高级的信息.</li>
 <li>通过attention, 我们可以可视化模型在进行性质预测的时候跟关注分子层面的哪些部分. 如图所示<br><img src="/2021/07/18/MG-Bert/att.png"><br>作者给出了两个任务的 attention weight. 第一个任务是计算 logD(亲脂性), 对于 logD 而言比较看重的是极性与否. 图中给出的一些比较重要的基团都是对极性有比较重大影响的基团.<br>第二个任务是判断这个分子是否是 mutagens (突变原, 能诱导 DNA 突变). 在这个任务中, 对于图中分子模型比较看重的基团都是一些具有毒性的基团(叠氮有待考证).<br>可以得出结论 MG-Bert 比较能够在任务中给出合理的可解释性信息,从而帮助药化专家考虑分子.</li>
 </ul>
-<div><h1>推荐文章</h1><ul><li><a href="https://kevinvfeng.github.io/2021/08/19/torchdrug-1/">torchdrug 使用指南 采坑记录(1)</a></li><li><a href="https://kevinvfeng.github.io/2021/08/03/HamNet/">HamNet</a></li><li><a href="https://kevinvfeng.github.io/2021/06/16/WAE/">WAE</a></li></ul></div>
+<div><h1>推荐文章</h1><ul><li><a href="https://kevinvfeng.github.io/2021/09/30/Evidential-Model/">不确定性量化方法 之 Evidential模型详解</a></li><li><a href="https://kevinvfeng.github.io/2021/08/30/uncertainty-quantification/">不确定性简要介绍</a></li><li><a href="https://kevinvfeng.github.io/2021/08/19/torchdrug-1/">torchdrug 使用指南 采坑记录(1)</a></li></ul></div>
     </div>
 
     

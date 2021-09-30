@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="zh ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Feng的图书馆 || 不确定性简要介绍</title>
+    <meta name="author" content="Kevin Feng">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/maiden-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWLLPQ749C"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JWLLPQ749C');
+    </script>
+    <script data-ad-client="ca-pub-2050152873704053" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Kevin Feng的图书馆</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Kevin Feng的图书馆</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>不确定性简要介绍 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/8/30
+        </span>
+        
+            <span class="date">
+            <span class="icon">
+                <a-icon type="book" theme="filled" />
+            </span>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_page_pv">阅读数 <span id="busuanzi_value_page_pv"></span></span>
+        </span>
+            
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Machine-Learning" style=color:#879cff>
+                    Machine Learning
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Math" style=color:#00bcd4>
+                    Math
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Deep-Learning" style=color:#1bccbc>
+                    Deep Learning
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>不确定性量化（UQ）是一门定量描述和减少计算和现实世界应用中不确定性的科学。换句话说我们需要知道我们所做的判断有多大可能性是准的.<br>自然科学和工程中的许多问题也充斥着不确定性的来源。关于计算机模拟的计算机实验是研究不确定性量化问题的最常见方法</p>
+<a id="more"></a>
+<h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>说不确定性可以从一个小笑话开始:</p>
+<blockquote>
+<p>面试官：“你简历上写着说你心算速度很快，那我问问你，13乘以19是多少？”<br>我脱口而出：“45！”<br>面试官：“这也差太远了吧。”<br>我：“你就说快不快吧！”</p>
+</blockquote>
+<p>机器学习就像笑话里面的面试者一样, 可以轻易的给出一个答案, 但是这个答案一定准吗? 比如在预测猫狗的问题中的,给一张人的照片, 模型能给出一个是猫还是狗的答案, 但是这一定不是正确的. 原因也很简单, 我们给的人的照片不在猫狗训练集的范围之内,也就是我们的训练集分布和测试集分布不相同. 这与机器学习的假设是不相同的,我们之所以用训练集去训练就是因为我们希望的训练集的分布可以代表我们用于测试或者实际应用中的分布, 但是很遗憾,现实就是训练集的分布跟现实世界还不太一样, 所以很多情况下我们无法完全依赖神经网络, 尤其是预测错了的代价非常高的时候,比如自动驾驶(判断失误可能导致车毁人亡) 或者金融领域(重大决策失误).<br>你可能会想到,人在做决策判断的时候,有些时候是靠理性分析,有些时候是无法分析所以靠猜的.人是可以说出自己面对某个问题是不是瞎猜的,那我们能不能引入一个方法来让神经网络说出他预测的结果可信不可信呢? 这个方法就是__不确定性量化__</p>
+<h2 id="两种不确定性"><a href="#两种不确定性" class="headerlink" title="两种不确定性"></a>两种不确定性</h2><p><img src="/uncertainty-quantification/type_of_uncertainties.png"><br>不确定性分为两种,一种是内在(随机)不确定性, 另一种成为认知不确定性.</p>
+<h3 id="内在不确定性（Aleatoric-Uncertainty）"><a href="#内在不确定性（Aleatoric-Uncertainty）" class="headerlink" title="内在不确定性（Aleatoric Uncertainty）"></a>内在不确定性（Aleatoric Uncertainty）</h3><p>内在不确定性, 也被称作Irreducible uncertainty, data<br>uncertainty,是指一些无法被确定的天然不确定性. 例如测量一起的精度不够高导致的误差, 我们不能通过增加更多样本来消除这种不确定性.例如上图中的 y 轴方向上的数据点, 由于某种测量误差导致多个数据点虽然 x 坐标是先沟通,但是 y 轴不同,也就是相同的输入但是不同的输出.</p>
+<h3 id="认知不确定性（Epistemic-Uncertainty）"><a href="#认知不确定性（Epistemic-Uncertainty）" class="headerlink" title="认知不确定性（Epistemic Uncertainty）"></a>认知不确定性（Epistemic Uncertainty）</h3><p>认知不确定性也被称作 knowledge<br>uncertainty. 认知不确定性表示的是模型对未知的正确预测程度.如上图所示,在数据点 x 的范围之外的点对于模型来说,因为完全没有见过这些点,所以不确定性是比较大的. 换句话说, 模型对于他见过的分布,他的预测是比较合理的, 对于没见过的数据点(超出了训练机的分布) 他的预测是自带了某种不确定性的, 这个不确定性就是认知不确定性. 降低认知不确定性的方法只有获得更多的数据(这些数据最好还是超出现有训练集分布的)</p>
+<h3 id="减小认知不确定性的方法"><a href="#减小认知不确定性的方法" class="headerlink" title="减小认知不确定性的方法"></a>减小认知不确定性的方法</h3><h4 id="内在不确定性减小方法"><a href="#内在不确定性减小方法" class="headerlink" title="内在不确定性减小方法"></a>内在不确定性减小方法</h4><p>提升测量精度, 减少偶然误差</p>
+<h4 id="认知不确定性减小方法"><a href="#认知不确定性减小方法" class="headerlink" title="认知不确定性减小方法"></a>认知不确定性减小方法</h4><p>获取更多训练集的数据并希望新增的数据能够更进一步将训练集的分布于真实分布贴近.</p>
+<h3 id="如何利用不确定性"><a href="#如何利用不确定性" class="headerlink" title="如何利用不确定性"></a>如何利用不确定性</h3><p>有了不确定性,我们面对很多现实问题可以处理的更保守/激进. 比如面对失败风险比较大的问题, 我们可以判断其预测结果的不确定性,对于不确定性高的问题引入专家介入从而降低模型的问题.<br>而面对希望渺茫的问题, 我们可以选择不确定性大的结果, 以此来增大预测失败的概率(预测的结果不好,但是预测对了的可能性比较低, 负负得正,这样更有可能预测出好结果)<br>除此之外,不确定性可以帮助找到不在训练集分布之内的例子, 对于不确定性大的例子可以人工挑选/检查/获取到确定的数据从而可以迭代优化模型,让模型下一次预测的更加准确.</p>
+<h2 id="认知不确定性的检测方法"><a href="#认知不确定性的检测方法" class="headerlink" title="认知不确定性的检测方法"></a>认知不确定性的检测方法</h2><p>我在这里把认知不确定性分为了两大类方法, 直接方法与间接方法</p>
+<h3 id="直接方法"><a href="#直接方法" class="headerlink" title="直接方法"></a>直接方法</h3><p>直接方法可以从模型直接输出不确定性结果, 主动方法效果好, 但是改造成本高,难度大</p>
+<ul>
+<li>Evidentail Model</li>
+<li>BNN(贝叶斯神经网络)</li>
+<li>GPR(高斯过程回归)<h3 id="间接方法"><a href="#间接方法" class="headerlink" title="间接方法"></a>间接方法</h3>间接方法主要采取的是多次测量的方法,根据每次输出结果的不同求方差得到不确定性.间接方法面临不确定性不够准的问题,但是优点是几乎不用对模型进行改造</li>
+<li>Ensemble</li>
+<li>Deep Ensemble( Ensembl 的优化版本)</li>
+<li>MC Dropout<h4 id="Ensemble"><a href="#Ensemble" class="headerlink" title="Ensemble"></a>Ensemble</h4>Ensemble 是一个很好的方法, 对于比较确定的输入,多个 Ensemble 模型给出的结果往往是比较接近的, 但是对于不确定的输入, Ensemble 往往会给出差异较大的结果. 因此,我们可以对每个样本在取输出的时候 不仅仅取每个模型输出结果的平均值, 同时也考虑一下方差,就可以简单了解对于这个样本来说的认知不确定性了.<br>Ensemble 是针对多个模型的, 对于单个模型,我们可以用 dropout 来解决这个问题. 这个方法可以在不损失(甚至增加)模型精度的情况下比较好的测量不确定性. 唯一的缺点就是训练及预测成本比较高.</li>
+</ul>
+<h4 id="MC-dropout"><a href="#MC-dropout" class="headerlink" title="MC dropout"></a>MC dropout</h4><p>在预测的过程中依然保持 dropout 打开的状态,重复预测几次,这样就可以保证输出的结果是不太一样的. 记录下这些不一致的输出结果,我们可以求得方法, 以方差作为不确定性. 不过这种方法效果不是很好.</p>
+<h2 id="不确定性的校准-Calibration"><a href="#不确定性的校准-Calibration" class="headerlink" title="不确定性的校准(Calibration)"></a>不确定性的校准(Calibration)</h2><p>与神经网络模型输出一个预测结果不一定准一样, 神经网络模型输出的不确定性不一定是准的.我们当然希望这个不确定性输出结果是准的, 所以这就涉及到了不确定性校准的概念. </p>
+<h3 id="何为准-何为不准"><a href="#何为准-何为不准" class="headerlink" title="何为准,何为不准"></a>何为准,何为不准</h3><h4 id="对于分类问题"><a href="#对于分类问题" class="headerlink" title="对于分类问题"></a>对于分类问题</h4><p>一般来讲,我们分类问题输出的结果表示的是一个概率值,也就是模型判断这个样本是正样本的概率有多大. 衡量这个概率准不准简单的做个统计就好了,我们从很多样本中选取预测概率值为 50% 的样本 N 个. 如果是一个经过校准的模型,那么这 N 个样本里应该恰好有 N/2 个样本是真实的正样本. 如果是一个没经过校准的模型那么就有可能有 N/3 或者 2N/3个样本是真实的样本了, 这也就代表了模型输出的概率值不能提现他预测出的概率, 这种模型可能面对分类问题本身有着良好的表先但是从概率的角度来看他还是欠校准的.</p>
+<h4 id="对于回归问题"><a href="#对于回归问题" class="headerlink" title="对于回归问题"></a>对于回归问题</h4><p>我们一般认为预测出的结果符合一个正态分布, 也就是说我们的真实值应该有 68%的概率落在预测值±1σ 95%的概率落在预测值±2σ中. 用与分类问题类似的方法我们可以统计这个概率 如果概率符合正态分布则说明这个不确定性是校准的</p>
+<div><h1>推荐文章</h1><ul><li><a href="https://kevinvfeng.github.io/2021/09/30/Evidential-Model/">不确定性量化方法 之 Evidential模型详解</a></li><li><a href="https://kevinvfeng.github.io/2021/08/19/torchdrug-1/">torchdrug 使用指南 采坑记录(1)</a></li><li><a href="https://kevinvfeng.github.io/2021/08/03/HamNet/">HamNet</a></li><li><a target="_blank" rel="noopener" href="https://vel.life/m%C3%97n%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F/">m×n矩阵的行列式</a></li></ul></div>
+    </div>
+
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2021 - 2021 Kevin Feng的图书馆
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Kevin Feng
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
