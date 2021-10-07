@@ -338,3 +338,9 @@ disable_baidu_transformation: true
 
 # 404 Page SubTitle
 404Text:
+
+# MathJax Support
+mathjax:
+  enable: true  #true/false.
+  per_page: false
+  cdn: //cdn.bootcss.com/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML
