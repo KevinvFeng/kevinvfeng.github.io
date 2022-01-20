@@ -49,7 +49,7 @@ $
 L\_ {i}^ {NLL} = \frac {1}{2} \log \_ {(\frac {\pi }{\upsilon})} - \alpha \log ( \Omega )+( \alpha + \frac {1}{2} ) \log ( (y-\gamma )^ {2} \upsilon+ \Omega )+ \log (\frac{\Gamma(\alpha)}{\Gamma(\alpha+1/2))} \qquad \Omega = 2\beta(1+\upsilon)
 $
 不过光有这个还不够, 因为这样训练出来的$\sigma$会非常的大, 这样所有的点都落在正常的范围内了, 这样预测的准确率就没有效果了.所以我们还需要引入KL-Divergence来保证我们的$\sigma$不会太大. 这里的公式如下:
-$ = \frac {1}{2} \frac {\alpha \_ {1}}{\beta \_ {1}} (\mu \_ {1}-\mu \_ {2})^ {2} v\_ {2} + \frac {1}{2} \frac {v\_ {2}}{v\_ {1}} - \frac {1}{2} + \alpha \_ {2} \log  (\frac {\beta \_ {1}}{\beta \_ {2}} )- \log {(\frac {\Gamma(\alpha \_ {1})}{\Gamma(\alpha \_ {2})})} 
+$KL(\Gamma_1||\Gamma_2) = \frac {1}{2} \frac {\alpha \_ {1}}{\beta \_ {1}} (\mu \_ {1}-\mu \_ {2})^ {2} v\_ {2} + \frac {1}{2} \frac {v\_ {2}}{v\_ {1}} - \frac {1}{2} + \alpha \_ {2} \log  (\frac {\beta \_ {1}}{\beta \_ {2}} )- \log {(\frac {\Gamma(\alpha \_ {1})}{\Gamma(\alpha \_ {2})})} 
 +( \alpha \_ {1} - \alpha \_ {2} ) \Psi ( \alpha \_ {1} )-( \beta \_ {1} - \beta \_ {2} ) \frac {\alpha \_ {1}}{\beta \_ {1}} $
 其中$\Psi()$是双伽马函数.
 最后将两部分拼到一起就可以了.
